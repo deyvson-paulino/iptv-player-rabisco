@@ -6,7 +6,7 @@
  * para o endereço público do seu backend.
  */
 
-const BACKEND_URL = "https://staying-finish-mai-shift.trycloudflare.com/";
+const BACKEND_URL = "https://staying-finish-mai-shift.trycloudflare.com";
 //"http://localhost:3000";
 
 const video = document.getElementById("video");
