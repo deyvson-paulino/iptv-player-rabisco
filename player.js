@@ -6,7 +6,7 @@
  * para o endereço público do seu backend.
  */
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = " https://blogging-bestsellers-pam-remainder.trycloudflare.com";
 
 const video = document.getElementById("video");
 const lista = document.getElementById("lista");
