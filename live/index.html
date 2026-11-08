@@ -4,76 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meu Streaming HLS</title>
-
-<!-- Scripts do HLS.js para compatibilidade com Androide e Pcs -->
-<script src="https://jsdelivr.net"></script>
-<style>
-    body {
-        margin: 0;
-        background: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        color: #fff;
-        font-family: sans-serif;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 800px;
-        padding: 10px;
-    }
-
-    video {
-        width: 100%;
-        border-radius: 8px;padding: 0 4px;
-    }
-</style>
 </head>
 <body>
 
-<div class="container">
+<div stule="max-width: 640px; margin:50px auto;">
+	<h2>Transmissão ao Viivo</h2>
 
 <video 
-id="video"
+id="meu-player"
 class="video-js vjs-default-skin vjs-big-play-centered"
 controls
- autoplay
- muted
- playsinline
- name="media">
+preload="auto"
+width="640"
+height="360"
+data-setup='()'
+ autoplay="" name="media">
+<!-- COLOQUE SEU LINK M3U8 NO LINK ABAIXO -->
+<source src="https://export-essentially-possibly-seen.trycloudflare.com/hls/stream.m3u8" type="application/x-mpegURL">
+<p class="vjs-no-js">
+Para assistir, por favor habilite o JavaScript ou atualize para um navegador que
+<a href="https://videojs.com" target="_blank">suprte video HTML5</a>
+</p>
 </video>
-<div id="erro" class="erro-aviso">
-    Se o video não carregar, clique no cadeado da barra de endereço do navegador e permita "conteudo Inseguro/Misto".
 </div>
-</div>
+
+<!-- Scripts do Video.js -->
+<script src="https://zencdn.net"></script>
+
 
 <script>
-    //INSIRA SEU LINKDE IP AQUI DENTRO DAS ASPAS
-    const streamURL = "https://export-essentially-possibly-seen.trycloudflare.com/hls/stream.m3u8";
-
-    const video = document.getElementById("videp");
-    const erroAviso = document.getElementById('erro');
-
-    if (hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(streamURL);
-        hls.attachMedia(video);
-
-        hls.on(Hls.Events.ERROR, function (event, data) {
-            if (data.fatal) {
-                erroAviso.style.display = 'block';
-            }
+(() => {
+        window.addoncropExtensions = window.addoncropExtensions || [];
+        window.addoncropExtensions.push({
+            mode: 'emulator',
+            emulator: 'Foxified',
+            extension: {
+                id: 44,
+                name: 'Programa de transferência de MP3 e vídeos do YouTube',
+                version: '17.2.8',
+                date: 'January 12, 2024',
+            },
+            flixmateConnected: false,
         });
-    }
-    //Suport nativo para Safari (iphone, ipads, Mac)
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = streamURL;
-    }
-</script>
-
-
+    })();
 </script>
 
 </body>
