@@ -1,57 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html foxified="" lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Meu IPTV Player</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Streaming HLS</title>
 </head>
-
 <body>
 
-<header>
-    <h1>▶ Meu IPTV Player</h1>
-    <span id="status">Conectando...</span>
-</header>
+<div stule="max-width: 640px; margin:50px auto;">
+	<h2>Transmissão ao Viivo</h2>
 
-<main>
+<video 
+id=meu-player"
+class="video-js vjs-default-skin vjs-big-play-centered"
+controls
+preload="auto"
+width="640"
+height="360"
+data-setup='()'
+ autoplay="" name="media">
+<!-- COLOQUE SEU LINK M3U8 NO LINK ABAIXO -->
+<source src="https://staying-finish-mai-shift.trycloudflare.com/tv-rabisco.m3u" type="application/x-mpegURL">
+<p class="vjs-no-js">
+Para assistir, por favor habilite o JavaScript ou atualize para um navegador que
+<a href="https://videojs.com" target="_blank">suprte video HTML5</a>
+</p>
+</video>
+</div>
 
-    <section class="player-area">
+<!-- Scripts do Video.js -->
+<script src="https://zencdn.net></script>
 
-        <video
-            id="video"
-            poster="https://staying-finish-mai-shift.trycloudflare.com/videos/vd-down/california/img/9YYZFCYPLd5I2Deh9MCkN3ETYpwewica.jpg"
-            src="https://staying-finish-mai-shift.trycloudflare.com/videos/filme1.mp4"
-            controls
-            autoplay
-            playsinline
-        ></video>
 
-        <h2 id="titulo">Selecione um canal</h2>
-
-    </section>
-
-    <aside>
-
-        <h2>Lista de canais M3U</h2>
-
-        <input
-            type="text"
-            id="busca"
-            placeholder="Buscar canal..."
-        >
-
-        <div id="lista"></div>
-
-    </aside>
-
-</main>
-
-<script src="player.js"></script>
+<script>
+(() => {
+        window.addoncropExtensions = window.addoncropExtensions || [];
+        window.addoncropExtensions.push({
+            mode: 'emulator',
+            emulator: 'Foxified',
+            extension: {
+                id: 44,
+                name: 'Programa de transferência de MP3 e vídeos do YouTube',
+                version: '17.2.8',
+                date: 'January 12, 2024',
+            },
+            flixmateConnected: false,
+        });
+    })();
+</script>
 
 </body>
 </html>
+<!--
+ffmpeg -i C:/nginx/www/rabisco-tv/live/YOUR_STREAM_URL2.mpeg -c:a aac -b:a 192k -ac 2 -f hls -hls_time 10 -preset ultrafast -flags -global_header C:/nginx/www/rabisco-tv/live/YOUR_STREAM_URL22.mpeg.m3u
+-->
